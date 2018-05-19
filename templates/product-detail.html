@@ -1,0 +1,101 @@
+<!-- detailObject -->
+<!-- main product description -->
+<!-- productAttributes -->
+<!-- main product attributes and options  -->
+<!-- productVariations -->
+<!-- variation of main product   -->
+<div layout="row" class="l-detailedPageWrap" layout-align="center center">
+    <div layout="column" flex="80" flex-xs="95" flex-sm="90">
+        <div class="c-detailedPageWrap" layout="row" layout-wrap>
+            <div layout="column" flex="50" flex-xs="100">
+                <!--  image  -->
+                <img src="{{detailObject.images[0]}}">
+            </div>
+            <div layout="column" class="c-detailedContent" flex="50" flex-xs="100">
+                <div layout="row">
+                    <div layout="column" class="c-detailedContent__name">
+                        {{detailObject.name}}
+                    </div>
+                </div>
+                <div layout="row">
+                    <div layout="column" class="c-detailedContent__description">
+                        {{detailObject.desc}}
+                    </div>
+                </div>
+                <div layout="row">
+                    <div layout="column">
+                        <div layout="row">
+                            <div layout="column" class="c-detailedContent__price">
+                                <span class="c-detailedContent__currencyIcon">&#8377</span>
+                                <span class="c-detailedContent__salesPrice">{{detailObject.sale_price | currency | '&#8377'}}</span>
+                                <span class="c-detailedContent__costPrice">{{detailObject.mark_price}}</span>
+                            </div>
+                        </div>
+                        <div ng-if="detailObject.sale_price < detailObject.mark_price" layout="row">
+                            <div layout="column" class="c-detailedContent__discountText">
+                                <span>You Save</span>
+                                <span>&#8377</span>
+                                <span>{{detailObject.mark_price - detailObject.sale_price}}</span>
+                                <!-- <span></span> -->
+                                <!-- TODO: show percentage discount   -->
+                            </div>
+                        </div>
+                        <div layout="row">
+                            <div layout="column" class="c-detailedContent__taxText">
+                                Local taxes included (where applicable)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div layout="row">
+                    <div layout="column">
+                        <div layout="row" ng-repeat="attribute in productAttributes">
+                            <div layout="column">
+                                <div layout="row">
+                                    <div layout="column" class="c-detailedContent__attributeName">
+                                        {{attribute.name}}
+                                    </div>
+                                </div>
+                                <div layout="row" layout-wrap class="c-detailedContent__optionsWrap">
+                                    <div class="c-detailedContent__optionRepeat" ng-repeat="option in attribute.types" layout="column" flex>
+                                        <md-button class="c-detailedContent__attributeButton">
+                                            {{option.name}}
+                                        </md-button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div layout="row">
+                    <div layout="column">
+                        <div class="c-detailedContent__quantityHeading">
+                            Quantity
+                        </div>
+                        <div layout="row">
+                            <div layout="column" flex="20">
+                                <md-button>
+                                	-
+                                </md-button>
+                            </div>
+                            <div layout="column" flex="20">
+                            </div>
+                            <div layout="column" flex="20">
+                                <md-button>
+                                	+
+                                </md-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div layout="row">
+                    <div class="c-detailedContent__addCartWrap" layout="column">
+                    	<md-button class="c-detailedContent__buttonCart">
+                    		Add to Cart
+                    	</md-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

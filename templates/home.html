@@ -1,3 +1,28 @@
-<div>
-	
+<div class="c-productListwrap" layout="row" layout-align="center center">
+    <div layout="column" flex="80" flex-sm="90" flex-xs="95">
+        <div layout="row" layout-wrap>
+            <div class="c-cardRepeat" layout="column" ng-repeat="product in productList" flex="25" flex-xs="50" flex-sm="33">
+                <a ui-sref="productDetail({'Id' : product._id})" class="c-cardRepeat__rowWrap" layout="row">
+                    <div layout="column" layout-fill>
+                        <div layout="row">
+                            <div layout="column" layout-fill>
+                                <img class="c-cardRepeat__img" ng-src="{{product.images[0]}}">
+                            </div>
+                        </div>
+                        <div layout="row">
+                            <div layout="column" class="c-cardRepeat__textWrap" layout-fill>
+                                <div class="c-cardRepeat__name">
+                                    {{product.name}}
+                                </div>
+                                <div class="c-cardRepeat__price">
+                                    <span>&#8377 </span>
+                                    <span>{{product.sale_price | currency:" ":2}} </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>

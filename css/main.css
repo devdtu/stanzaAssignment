@@ -1,0 +1,117 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.c-cardRepeat {
+    padding: 20px;
+}
+
+.c-cardRepeat__img {
+    width: 100%;
+    height: 175px;
+    object-fit: contain;
+}
+
+.c-productListwrap {
+    background-color: #fff;
+    padding-top: 60px;
+}
+
+.c-cardRepeat__name {
+    letter-spacing: initial;
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block!important;
+    width: 100%;
+}
+
+.c-cardRepeat__textWrap {
+    padding: 10px;
+}
+
+.c-cardRepeat__price {
+    font-size: 12px;
+    color: #777;
+    font-weight: bold;
+    padding-top: 5px;
+    letter-spacing: 1px;
+}
+
+.c-cardRepeat__rowWrap:hover {
+    cursor: pointer;
+    /*box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);*/
+    box-shadow: 0 4px 20px 0 hsla(0, 0%, 56%, .5);
+}
+
+.c-cardRepeat__rowWrap {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+    border-radius: 5px;
+}
+
+.l-detailedPageWrap {
+    background-color: #fff;
+}
+
+.c-detailedPageWrap {
+    padding-top: 100px;
+}
+
+.c-detailedContent {
+    color: #444;
+}
+
+.c-detailedContent__name {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 2;
+    letter-spacing: 1px;
+}
+
+.c-detailedContent__name:after {
+    content: "";
+    display: block;
+    width: 30%;
+    border-bottom: 2px solid #41c8f3;
+    margin-bottom: 20px;
+}
+
+.c-detailedContent__description {
+    font-size: 14px;
+    letter-spacing: 0.8px;
+    line-height: 1.4;
+}
+
+.c-detailedContent__description:after {
+    content: "";
+    display: block;
+    width: 100%;
+    border-bottom: 2px solid #e7e7e7;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.c-detailedContent .c-detailedContent__price {
+    display: inline-block;
+}
+
+.c-detailedContent__currencyIcon,
+.c-detailedContent__salesPrice {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 599px) {
+    .c-cardRepeat__img {
+        height: 125px;
+    }
+
+    .c-cardRepeat {
+        padding: 10px;
+    }
+}
