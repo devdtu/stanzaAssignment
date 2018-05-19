@@ -299,6 +299,10 @@ md-content {
     padding-top: 30px;
 }
 
+.c-loaderWrap {
+    height: 90vh;
+}
+
 @media only screen and (max-width: 599px) {
     .c-cardRepeat__img {
         height: 125px;
