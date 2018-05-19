@@ -2,6 +2,10 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+md-content {
+    background-color: #fff;
+}
+
 .c-cardRepeat {
     padding: 20px;
 }
@@ -177,7 +181,7 @@ body {
 }
 
 .c-productCount {
-    border: 2px solid #41c8f3;
+    border: 1px solid #41c8f3;
 }
 
 .c-productCount__count {
@@ -201,11 +205,12 @@ body {
 
 .c-productSwiper {
     padding: 0px 20px;
-    padding-top: 40px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    position: relative;
 }
 
 .c-productSwiper__image {
-    /*width: 100%;*/
     height: 300px;
     object-fit: cover;
 }
@@ -214,6 +219,62 @@ body {
     background-color: #fff;
 }
 
+.c-header .c-header__homePage {
+    color: #444;
+    font-size: 16px;
+    line-height: 2;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.c-header__appName {
+    color: #444;
+    font-size: 16px;
+    line-height: 2;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.c-footer {
+    background-color: #444;
+    color: #fff;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.swiper-container {
+    position: unset !important;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    top: unset !important;
+    bottom: -10px;
+    height: 30px !important;
+}
+
+.swiper-button-next {
+    right: 40px !important;
+}
+
+.swiper-button-prev {
+    left: 40px !important;
+}
+
+.swiper-container .swiper-button-next {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%2344c8f5'%2F%3E%3C%2Fsvg%3E");
+}
+
+.swiper-container .swiper-button-prev {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' viewBox%3D'0 0 27 44'%3E%3Cpath d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z' fill%3D'%2344c8f5'%2F%3E%3C%2Fsvg%3E");
+}
+
+/*.c-header__buttonHome {
+
+}
+*/
 @media only screen and (max-width: 599px) {
     .c-cardRepeat__img {
         height: 125px;
@@ -221,5 +282,16 @@ body {
 
     .c-cardRepeat {
         padding: 10px;
+    }
+
+    .c-productSwiper {
+        padding-top: 0;
+        padding: 0px 10px;
+        padding-bottom: 40px;
+    }
+
+    .c-detailedContent {
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }

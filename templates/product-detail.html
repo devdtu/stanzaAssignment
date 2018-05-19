@@ -1,20 +1,15 @@
-<!-- detailObject -->
-<!-- main product description -->
-<!-- productAttributes -->
-<!-- main product attributes and options  -->
-<!-- productVariations -->
-<!-- variation of main product   -->
-<div layout="row" class="l-detailedPageWrap" layout-align="center center">
+<!-- detailObject - main product description -->
+<!-- productAttributes - main product attributes and options -->
+<!-- productVariations - variation of main product -->
+<div ng-if="detailObject" layout="row" class="l-detailedPageWrap" layout-align="center center">
     <div layout="column" flex="80" flex-xs="95" flex-sm="90">
         <div class="c-detailedPageWrap" layout-align="center start" layout="row" layout-wrap>
             <div layout="column" class="c-productSwiper" flex="50" flex-xs="100">
-                <!--  image  -->
-                <!-- <img src="{{detailObject.images[0]}}"> -->
                 <div>
-                    <ks-swiper-container override-parameters="{'effect':'fade', 'preloadImages': false, 'lazyLoading': true, lazyLoadingInPrevNext: true, 'watchSlidesVisibility': true}" on-ready="onReadySwiper(swiper)">
-                        <ks-swiper-slide class="c-productSwiper__slide" ng-repeat="image in detailObject.images">
+                    <ks-swiper-container show-nav-buttons="true" on-ready="onReadySwiper(swiper)">
+                        <ks-swiper-slide class="c-productSwiper__slide" ng-repeat="image in detailObject.images track by $index">
                             <div layout="row" layout-align="center center">
-                                <div layout="column" >
+                                <div layout="column">
                                     <img class="c-productSwiper__image" src="{{image}}">
                                 </div>
                             </div>
@@ -38,8 +33,8 @@
                         <div layout="row">
                             <div layout="column" class="c-detailedContent__price">
                                 <span class="c-detailedContent__currencyIcon">&#8377</span>
-                                <span class="c-detailedContent__salesPrice">{{detailObject.sale_price }}</span>
-                                <span class="c-detailedContent__costPrice"><strike><span>&#8377 </span>{{detailObject.mark_price}}</strike>
+                                <span class="c-detailedContent__salesPrice">{{detailObject.sale_price | number: 2}}</span>
+                                <span class="c-detailedContent__costPrice"><strike><span>&#8377 </span>{{detailObject.mark_price | number: 2}}</strike>
                                 </span>
                             </div>
                         </div>
@@ -47,7 +42,7 @@
                             <div layout="column" class="c-detailedContent__discountText">
                                 <span>You Save</span>
                                 <span>&#8377</span>
-                                <span>{{detailObject.mark_price - detailObject.sale_price}}</span>
+                                <span>{{detailObject.mark_price - detailObject.sale_price | number: 2}}</span>
                                 <!-- <span></span> -->
                                 <!-- TODO: show percentage discount   -->
                             </div>
@@ -102,7 +97,7 @@
                     </div>
                 </div>
                 <div layout="row">
-                    <div class="c-detailedContent__addCartWrap" layout="column" flex="80">
+                    <div class="c-detailedContent__addCartWrap" layout="column" flex="80" flex-xs="100">
                         <md-button class="c-detailedContent__buttonCart">
                             Add to Cart
                         </md-button>

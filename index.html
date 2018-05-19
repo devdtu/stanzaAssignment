@@ -13,10 +13,13 @@
 </head>
 
 <body>
-    <md-content>
+    <md-content ng-controller="parentController" infinite-scroll="myPagingFunction()">
+        <div ng-controller="IndexController" ng-include="'templates/header.html'"></div>
         <div ui-view="main-view">
         </div>
+        <div ng-include="'templates/footer.html'"></div>
     </md-content>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="js/angular/angular.min.js"></script>
     <script type="text/javascript" src="js/angular/angular-ui-router.min.js"></script>
     <!-- Angular Material requires Angular.js Libraries -->
@@ -24,6 +27,7 @@
     <script src="js/angular/angular-aria.min.js"></script>
     <script src="js/angular/angular-material.min.js"></script>
     <script src="js/angular/angular-messages.min.js"></script>
+    <script type="text/javascript" src="js/ng-infinite-scroll.min.js"></script>
     <!-- Angular Material Library -->
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="js/services.js"></script>

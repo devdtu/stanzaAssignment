@@ -1,7 +1,11 @@
-angular.module('webAppControllers', ['webAppService', 'ksSwiper'])
+angular.module('webAppControllers', ['webAppService', 'ksSwiper', 'infinite-scroll'])
     .controller('HomeController', function($scope, $state, $window, $stateParams, ecommerceServices) {
-        ecommerceServices.getProducts().then(function(response) {
-            $scope.productList = response;
+        ecommerceServices.setPageActive('homePage');
+        var pageNum = 1;
+        var unsetPagination = false;
+        $scope.productList = [];
+        ecommerceServices.getProducts(1).then(function(response) {
+            $scope.productList = $scope.productList.concat(response);
         }, function(error) {
 
         });
@@ -9,9 +13,46 @@ angular.module('webAppControllers', ['webAppService', 'ksSwiper'])
         $scope.removeSpace = function(name) {
             return name.replace(/ /g, '-');
         }
+
+        var unregister = $scope.$watch(function() {
+            return $scope.$parent.pageNum;
+        }, function(newValue, oldValue) {
+            if ((newValue > pageNum) && !unsetPagination) {
+                pageNum = newValue;
+                getProductPagination();
+            }
+        });
+
+        function getProductPagination() {
+            ecommerceServices.getProducts(pageNum).then(function(response) {
+                $scope.productList = $scope.productList.concat(response);
+                if (!response.length) {
+                    unsetPagination = true;
+                    unregister();
+                }
+            }, function(error) {
+
+            });
+        }
     })
 
+
+    .controller('parentController', function($scope, $state, $window, $stateParams, ecommerceServices) {
+        $scope.pageNum = 0;
+        $scope.myPagingFunction = function() {
+            $scope.pageNum = $scope.pageNum + 1;
+        }
+
+        $scope.$watch(function() {
+            return ecommerceServices.getPageActive();
+        }, function(newValue, oldValue) {
+            $scope.pageNum = 1;
+        });
+    })
+    .controller('IndexController', function($scope, $state, $window, $stateParams, ecommerceServices) {})
+
     .controller('productDetailController', function($scope, $state, $window, $stateParams, ecommerceServices, $stateParams) {
+        ecommerceServices.setPageActive('productPage');
         var productId = $stateParams.Id;
         var productDetail;
         $scope.productCount = 1;
@@ -79,17 +120,17 @@ angular.module('webAppControllers', ['webAppService', 'ksSwiper'])
                         matchCount = matchCount + 1;
                     }
                 }
-                
-                if(matchCount == selectedFieldCount) {
+
+                if (matchCount == selectedFieldCount) {
                     matchFound = true;
                     newProductObject = JSON.parse(JSON.stringify($scope.productVariations[index]));
                     break;
                 }
             }
 
-            if(matchFound) {   
+            if (matchFound) {
                 for (var key in newProductObject) {
-                    if(key != 'sign' && key != 'images') {
+                    if (key != 'sign' && key != 'images') {
                         $scope.detailObject[key] = newProductObject[key];
                     }
                 }
