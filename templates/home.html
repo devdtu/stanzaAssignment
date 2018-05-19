@@ -1,4 +1,4 @@
-<div infinite-scroll-distance="10" class="c-productListwrap" layout="row" layout-align="center center">
+<div ng-if="productList.length" infinite-scroll-distance="10" class="c-productListwrap" layout="row" layout-align="center center">
     <div layout="column" flex="80" flex-sm="90" flex-xs="95">
         <div layout="row" layout-wrap>
             <div class="c-cardRepeat" layout="column" ng-repeat="product in productList" flex="25" flex-xs="50" flex-sm="33">
@@ -24,5 +24,11 @@
                 </a>
             </div>
         </div>
+    </div>
+</div>
+
+<div ng-if="!productList.length"  layout-align="center center" class="c-loaderWrap" layout="row">
+    <div layout="column">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
     </div>
 </div>
