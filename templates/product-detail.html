@@ -6,10 +6,21 @@
 <!-- variation of main product   -->
 <div layout="row" class="l-detailedPageWrap" layout-align="center center">
     <div layout="column" flex="80" flex-xs="95" flex-sm="90">
-        <div class="c-detailedPageWrap" layout="row" layout-wrap>
-            <div layout="column" flex="50" flex-xs="100">
+        <div class="c-detailedPageWrap" layout-align="center start" layout="row" layout-wrap>
+            <div layout="column" class="c-productSwiper" flex="50" flex-xs="100">
                 <!--  image  -->
-                <img src="{{detailObject.images[0]}}">
+                <!-- <img src="{{detailObject.images[0]}}"> -->
+                <div>
+                    <ks-swiper-container override-parameters="{'effect':'fade', 'preloadImages': false, 'lazyLoading': true, lazyLoadingInPrevNext: true, 'watchSlidesVisibility': true}" on-ready="onReadySwiper(swiper)">
+                        <ks-swiper-slide class="c-productSwiper__slide" ng-repeat="image in detailObject.images">
+                            <div layout="row" layout-align="center center">
+                                <div layout="column" >
+                                    <img class="c-productSwiper__image" src="{{image}}">
+                                </div>
+                            </div>
+                        </ks-swiper-slide>
+                    </ks-swiper-container>
+                </div>
             </div>
             <div layout="column" class="c-detailedContent" flex="50" flex-xs="100">
                 <div layout="row">
@@ -22,13 +33,14 @@
                         {{detailObject.desc}}
                     </div>
                 </div>
-                <div layout="row">
+                <div class="c-detailedContent__priceDivWrap" layout="row">
                     <div layout="column">
                         <div layout="row">
                             <div layout="column" class="c-detailedContent__price">
                                 <span class="c-detailedContent__currencyIcon">&#8377</span>
                                 <span class="c-detailedContent__salesPrice">{{detailObject.sale_price }}</span>
-                                <span class="c-detailedContent__costPrice">{{detailObject.mark_price}}</span>
+                                <span class="c-detailedContent__costPrice"><strike><span>&#8377 </span>{{detailObject.mark_price}}</strike>
+                                </span>
                             </div>
                         </div>
                         <div ng-if="detailObject.sale_price < detailObject.mark_price" layout="row">
@@ -48,8 +60,8 @@
                     </div>
                 </div>
                 <div layout="row">
-                    <div layout="column">
-                        <div layout="row" ng-repeat="attribute in productAttributes">
+                    <div class="c-productOptionsWrap" layout="column" layout-fill>
+                        <div layout="row" class="c-productOptionsWrap__ngRepeatRow" ng-repeat="attribute in productAttributes">
                             <div layout="column">
                                 <div layout="row">
                                     <div layout="column" class="c-detailedContent__attributeName">
@@ -58,7 +70,7 @@
                                 </div>
                                 <div layout="row" layout-wrap class="c-detailedContent__optionsWrap">
                                     <div class="c-detailedContent__optionRepeat" ng-repeat="option in attribute.types" layout="column" flex>
-                                        <md-button class="c-detailedContent__attributeButton">
+                                        <md-button ng-class="{true: 'selectedButton', false: 'null'}[attribute.selected._id == option._id]" ng-click="attributeSelect(attribute, option)" class="c-detailedContent__attributeButton">
                                             {{option.name}}
                                         </md-button>
                                     </div>
@@ -72,27 +84,28 @@
                         <div class="c-detailedContent__quantityHeading">
                             Quantity
                         </div>
-                        <div layout="row">
-                            <div layout="column" flex="20">
-                                <md-button>
-                                	-
+                        <div layout="row" class="c-productCount">
+                            <div layout="column" flex>
+                                <md-button ng-click="decreementProduct()" class="c-productCount__subtract">
+                                    -
                                 </md-button>
                             </div>
-                            <div layout="column" flex="20">
+                            <div layout="column" class="c-productCount__count" flex layout-align="center center">
+                                {{productCount}}
                             </div>
-                            <div layout="column" flex="20">
-                                <md-button>
-                                	+
+                            <div layout="column" flex>
+                                <md-button ng-click="increementProduct()" class="c-productCount__add">
+                                    +
                                 </md-button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div layout="row">
-                    <div class="c-detailedContent__addCartWrap" layout="column">
-                    	<md-button class="c-detailedContent__buttonCart">
-                    		Add to Cart
-                    	</md-button>
+                    <div class="c-detailedContent__addCartWrap" layout="column" flex="80">
+                        <md-button class="c-detailedContent__buttonCart">
+                            Add to Cart
+                        </md-button>
                     </div>
                 </div>
             </div>
