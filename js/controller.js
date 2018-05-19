@@ -56,6 +56,8 @@ angular.module('webAppControllers', ['webAppService', 'ksSwiper', 'infinite-scro
         var productId = $stateParams.Id;
         var productDetail;
         $scope.productCount = 1;
+        $scope.limitText = 150;
+        $scope.disableAddCart = false;
 
         ecommerceServices.getProductDetail(productId).then(function(response) {
             productDetail = response;
@@ -64,8 +66,32 @@ angular.module('webAppControllers', ['webAppService', 'ksSwiper', 'infinite-scro
 
         });
 
+        $scope.swiper1;
+        $scope.swiper2;
         $scope.onReadySwiper = function(swiper) {
             swiper.initObservers();
+            $scope.swiper1 = swiper;
+            swiper.on('slideChangeStart', function() {
+                //.activeIndex
+                //swiper.slideTo(index, 500, false);
+                $scope.swiper2.slideTo($scope.swiper1.activeIndex, 500, false);
+            });
+        }
+
+        $scope.onReadySwiper2 = function(swiper) {
+            swiper.initObservers();
+            $scope.swiper2 = swiper;
+
+            swiper.on('slideChangeStart', function() {
+                //.activeIndex
+                //swiper.slideTo(index, 500, false);
+                $scope.swiper1.slideTo($scope.swiper2.activeIndex, 500, false);
+            });
+        }
+
+        $scope.showCompleteText = function() {
+            $scope.limitText = 10000;
+
         }
 
         function setVariables() {
@@ -134,6 +160,9 @@ angular.module('webAppControllers', ['webAppService', 'ksSwiper', 'infinite-scro
                         $scope.detailObject[key] = newProductObject[key];
                     }
                 }
+                $scope.disableAddCart = false;
+            } else {
+                $scope.disableAddCart = true;
             }
         }
 

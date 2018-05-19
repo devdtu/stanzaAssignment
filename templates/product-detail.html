@@ -6,15 +6,28 @@
         <div class="c-detailedPageWrap" layout-align="center start" layout="row" layout-wrap>
             <div layout="column" class="c-productSwiper" flex="50" flex-xs="100">
                 <div>
-                    <ks-swiper-container show-nav-buttons="true" on-ready="onReadySwiper(swiper)">
-                        <ks-swiper-slide class="c-productSwiper__slide" ng-repeat="image in detailObject.images track by $index">
-                            <div layout="row" layout-align="center center">
-                                <div layout="column">
-                                    <img class="c-productSwiper__image" src="{{image}}">
+                    <div>
+                        <ks-swiper-container show-nav-buttons="true" on-ready="onReadySwiper(swiper)">
+                            <ks-swiper-slide class="c-productSwiper__slide" ng-repeat="image in detailObject.images track by $index">
+                                <div layout="row" layout-align="center center">
+                                    <div layout="column">
+                                        <img class="c-productSwiper__image" src="{{image}}">
+                                    </div>
                                 </div>
-                            </div>
-                        </ks-swiper-slide>
-                    </ks-swiper-container>
+                            </ks-swiper-slide>
+                        </ks-swiper-container>
+                    </div>
+                    <div class="c-thumbnailSwiperWrap">
+                        <ks-swiper-container slides-per-view="4" space-between="10" show-nav-buttons="false" on-ready="onReadySwiper2(swiper)">
+                            <ks-swiper-slide class="c-productSwiper__slide" ng-repeat="image in detailObject.images track by $index">
+                                <div layout="row" layout-align="center center">
+                                    <div layout="column">
+                                        <img class="c-productSwiper__imageThumb" src="{{image}}">
+                                    </div>
+                                </div>
+                            </ks-swiper-slide>
+                        </ks-swiper-container>
+                    </div>
                 </div>
             </div>
             <div layout="column" class="c-detailedContent" flex="50" flex-xs="100">
@@ -25,7 +38,7 @@
                 </div>
                 <div layout="row">
                     <div layout="column" class="c-detailedContent__description">
-                        {{detailObject.desc}}
+                        {{detailObject.desc | limitTo: limitText}}<span ng-if="limitText == 150" ng-click="showCompleteText()">... <span class="c-showMoreSpan">More</span></span>
                     </div>
                 </div>
                 <div class="c-detailedContent__priceDivWrap" layout="row">
@@ -98,7 +111,7 @@
                 </div>
                 <div layout="row">
                     <div class="c-detailedContent__addCartWrap" layout="column" flex="80" flex-xs="100">
-                        <md-button class="c-detailedContent__buttonCart">
+                        <md-button ng-disabled="disableAddCart" class="c-detailedContent__buttonCart">
                             Add to Cart
                         </md-button>
                     </div>
