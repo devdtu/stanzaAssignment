@@ -14,10 +14,10 @@
 
 <body>
     <md-content>
-        <div ng-controller="IndexController" ng-include="'templates/header.html'"></div>
+        <!-- <div ng-controller="IndexController" ng-include="'templates/header.html'"></div> -->
         <div ui-view="main-view">
         </div>
-        <div ng-include="'templates/footer.html'"></div>
+        <!--         <div ng-include="'templates/footer.html'"></div> -->
     </md-content>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="js/angular/angular.min.js"></script>
@@ -38,7 +38,8 @@
     function downloadAtOnload() {
         var head = document.getElementsByTagName('head')[0];
         var asyncStyleSheets = [
-            'https://fonts.googleapis.com/css?family=Montserrat:500,600,700,800,900,500italic,600italic,700italic'
+            'https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900,500italic,600italic,700italic',
+            'https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/2.2.43/css/materialdesignicons.min.css'
         ];
         for (var i = 0; i < asyncStyleSheets.length; i++) {
             var link = document.createElement('link');

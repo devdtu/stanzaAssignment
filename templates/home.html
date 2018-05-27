@@ -1,34 +1,221 @@
-<div ng-if="productList.length" infinite-scroll-distance="10" class="c-productListwrap" layout="row" layout-align="center center">
-    <div layout="column" flex="80" flex-sm="90" flex-xs="95">
-        <div layout="row" layout-wrap>
-            <div class="c-cardRepeat" layout="column" ng-repeat="product in productList" flex="25" flex-xs="50" flex-sm="33">
-                <a ui-sref="productDetail({'Id' : product._id})" class="c-cardRepeat__rowWrap" layout="row">
-                    <div layout="column" layout-fill>
-                        <div layout="row">
-                            <div layout="column" layout-fill>
-                                <img class="c-cardRepeat__img" ng-src="{{product.images[0]}}">
+<div layout="row" class="whyStanzaWrap">
+    <div layout="column">
+        <div layout="row" class="c-heroSection">
+            <div layout="column">
+                <div layout="row" layout-align="center center">
+                    <div layout="column" class="c-heroSection__heading">
+                        WHY STANZA?
+                    </div>
+                </div>
+                <div layout="row" layout-align="center center">
+                    <div flex="85" class="c-heroSection__subHeading" layout="column">
+                        <div>
+                            Stanza is not just a place to live, it is a lifestyle you choose.
+                        </div>
+                        A multi-level approach to student accommodation, Stanza unites unique experiences of comfort, community, and collaboration at exceptional prices to redefine student living in India.
+                    </div>
+                </div>
+                <div layout="row" class="c-heroSection__videoWrap" layout-align="center center">
+                    <div hide-xs layout="column">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/lPoqVIg86Ww" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div hide-gt-sm layout="column">
+                        <iframe src="https://www.youtube.com/embed/lPoqVIg86Ww" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div layout="row" layout-align="center center">
+                    <div layout="column">
+                        <md-button>
+                            <i class="c-heroSection__downIcon mdi mdi-chevron-down"></i>
+                        </md-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div layout="row" class="l-comparison">
+            <div layout="column" class="c-comparison">
+                <div layout="row" layout-align="center center">
+                    <div layout="column" class="c-comparison__heading">
+                        STANZA vs. PG
+                    </div>
+                </div>
+                <div layout="row" layout-align="center center">
+                    <div layout="column" class="c-comparison__subheading" flex="85">
+                        Stanza residences are professionally managed and are focused on elevating the overall student experience with a number of high-quality service and product offerings, We are not that neighborhood uncle and aunt who want to make the extra buck by leasing the top floor of their house to as many students as possible, nor are we fly-by-night property developers who build hostels with the sole aim of maximizing short term returns. We are truly "students first" in approach.
+                    </div>
+                </div>
+                <div class="l-tableComparison" layout="row" layout-align="center center">
+                    <div layout="column" flex="50" flex-xs="95">
+                        <img class="l-tableComparison__img" src="../img/hostel-pg-stanza.png">
+                    </div>
+                </div>
+                <!-- <div layout="row" layout-align="center center">
+                    <div layout="column" flex="60" class="c-comparison__tableWrap">
+                        <div layout="row" class="c-tableHeadingWrap">
+                            <div layout="column" flex="60">
+                            </div>
+                            <div layout="column" flex="20">
+                                PG
+                            </div>
+                            <div layout="column" flex="20">
+                                stanza
                             </div>
                         </div>
-                        <div layout="row">
-                            <div layout="column" class="c-cardRepeat__textWrap" layout-fill>
-                                <div class="c-cardRepeat__name">
-                                    {{product.name}}
+                        <div class="c-tableContent" layout="row" layout-wrap>
+                            <div layout="column" flex="100">
+                                <div layout="row">
+                                    <div layout="column" flex="60" class="c-tableContent__metric">
+                                    </div>
+                                    <div layout="column" flex="20" class="c-tableContent__metric">
+                                        PG
+                                    </div>
+                                    <div layout="column" flex="20">
+                                        stanza
+                                    </div>
                                 </div>
-                                <div class="c-cardRepeat__price">
-                                    <span>&#8377 </span>
-                                    <span>{{product.sale_price | currency:" ":2}} </span>
+                                <div layout="row">
+                                    <div layout="column" flex="60" class="c-tableContent__metric">
+                                    </div>
+                                    <div layout="column" flex="20" class="c-tableContent__metric">
+                                        PG
+                                    </div>
+                                    <div layout="column" flex="20">
+                                        stanza
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </a>
+                </div> -->
             </div>
         </div>
-    </div>
-</div>
-
-<div ng-if="!productList.length"  layout-align="center center" class="c-loaderWrap" layout="row">
-    <div layout="column">
-        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+        <div layout="row" class="l-flatComparison">
+            <div layout="column">
+                <div layout="row" layout-align="center center">
+                    <div layout="column" class="l-flatComparison__heading">
+                        STANZA vs. FLAT
+                    </div>
+                </div>
+                <div layout="row" layout-align="center center">
+                    <div layout="column" flex="75" class="l-flatComparison__subHeading">
+                        Stanza residences help you save your monthly spends while allowing the flexibility and freedom to enjoy college life to the fullest. The cost of Stanza residences is at par with or below current market standards and promises a hassle-free living experience.
+                    </div>
+                </div>
+                <div layout="row" layout-align="center center">
+                    <div layout="column" flex="75" class="l-flatComparison__subHeading2 l-flatComparison__subHeading--padding">
+                        At Stanza, you move in and begin to live right from the first day - no bills to pay, no maintenance and repairs to worry about, no complaining maids and cleaners to deal with and no neighbours to morally police you!
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div layout="row" class="c-productSelect">
+            <div layout="column" flex="100">
+                <div ng-if="activeIndex == 0" layout="row" class="c-slide1">
+                    <div layout="column" flex="100">
+                        <div layout="row" layout-align="center center">
+                            <div layout="column" class="c-productSelect__heading">
+                                Select Your Gender
+                            </div>
+                        </div>
+                        <div layout="row" class="c-slide1__imgWrap" layout-align="center center">
+                            <div layout="column" flex="35" flex-xs="90">
+                                <div layout="row">
+                                    <div layout="column" flex="50">
+                                        <md-button ng-click="genderSelected('male')">
+                                            <img class="c-slide1__img" ng-class="{true: 'c-selectedImageCss', false: 'null'}[selectedGender == 'male']" src="../img/male_selected.svg">
+                                        </md-button>
+                                    </div>
+                                    <div layout="column" flex="50">
+                                        <md-button ng-click="genderSelected('female')">
+                                            <img class="c-slide1__img" ng-class="{true: 'c-selectedImageCss', false: 'null'}[selectedGender == 'female']" src="../img/female_selected.svg">
+                                        </md-button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="activeIndex == 1" layout="row" class="c-slide1">
+                    <div layout="column" flex="100">
+                        <div layout="row" layout-align="center center">
+                            <div layout="column" class="c-productSelect__heading">
+                                Select Your City
+                            </div>
+                        </div>
+                        <div layout="row" class="c-cityRowWrap" layout-align="center center">
+                            <div layout="column" flex="50" flex-xs="90">
+                                <div class="c-productSelect__cityWrap" layout="row" layout-wrap>
+                                    <div layout="column" flex="50">
+                                        <md-button ng-click="citySelected('New Delhi')" ng-class="{true: 'c-productSelect__citySelected', false: 'null'}[selectedCity =='New Delhi']" class="c-productSelect__city">
+                                            New Delhi
+                                        </md-button>
+                                    </div>
+                                    <div layout="column" flex="50">
+                                        <md-button ng-click="citySelected('Noida')" ng-class="{true: 'c-productSelect__citySelected', false: 'null'}[selectedCity == 'Noida']" class="c-productSelect__city">
+                                            Noida
+                                        </md-button>
+                                    </div>
+                                    <div layout="column" flex="50">
+                                        <md-button ng-click="citySelected('Greater Noida')" ng-class="{true: 'c-productSelect__citySelected', false: 'null'}[selectedCity == 'Greater Noida']" class="c-productSelect__city">
+                                            Greater Noida
+                                        </md-button>
+                                    </div>
+                                    <div layout="column" flex="50">
+                                        <md-button ng-click="citySelected('Dehradun')" ng-class="{true: 'c-productSelect__citySelected', false: 'null'}[selectedCity == 'Dehradun']" class="c-productSelect__city">
+                                            Dehradun
+                                        </md-button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="activeIndex == 2" layout="row" class="c-slide3">
+                    <div layout="column" flex="100">
+                        <div layout="row" layout-align="center center">
+                            <div layout="column" flex="60" flex-xs="90">
+                                <img class="c-slide3__img" src="../img/pricing.png">
+                            </div>
+                        </div>
+                        <div layout="row" layout-align="center center">
+                            <div layout="column">
+                                <md-button ng-click="nextClicked()" class="c-slide3__buttonMore">
+                                    wait, there's more!
+                                </md-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="activeIndex == 3" layout="row" class="c-slide4">
+                    <div layout="column" flex="100">
+                        <div layout="row" layout-align="center center">
+                            <div layout="column" flex="60" flex-xs="90">
+                                <div layout="row" class="c-slide4__heading" layout-align="center center">
+                                    <div layout="column">
+                                        with stanza you also get
+                                    </div>
+                                </div>
+                                <div layout="row" layout-wrap>
+                                    <div layout="column" class="c-slide4__imgWrap" ng-repeat="amenities in amenitiesArray" flex="20">
+                                        <img class="c-slide4__img" src="{{amenities.img}}">
+                                        <div class="c-slide1__name">
+                                            {{amenities.name}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <md-button ng-click="prevClicked()" ng-disabled="activeIndex == 0" class="c-productSelect__leftButton">
+                        <i class="mdi mdi-chevron-left"></i>
+                    </md-button>
+                    <md-button ng-click="nextClicked()" ng-disabled="activeIndex == 3" class="c-productSelect__rightButton">
+                        <i class="mdi mdi-chevron-right"></i>
+                    </md-button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
